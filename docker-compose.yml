@@ -18,3 +18,5 @@ services:
       dockerfile: Dockerfile
     ports:
       - "9000:9000"
+    environment:
+      - API_URL=http://localhost:3000

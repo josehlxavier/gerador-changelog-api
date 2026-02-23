@@ -14,7 +14,7 @@ const DotEnv = require('dotenv')
 
 
 module.exports = configure(function (/* ctx */) {
-  const parsedEnv = DotEnv.config().parsed
+  const parsedEnv = DotEnv.config().parsed || {}
   return {
     
 
@@ -64,7 +64,7 @@ module.exports = configure(function (/* ctx */) {
       //publicPath: '.',
        publicPath: process.env.NODE_ENV == "development" ? '' : parsedEnv.DOMAIN_NAME,
       // analyze: true,
-       env: parsedEnv,
+       env: { API_URL: process.env.API_URL, ...parsedEnv },
       // rawDefine: {}
       // ignorePublicFolder: true,
       // minify: false,
