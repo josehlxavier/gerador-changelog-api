@@ -361,7 +361,7 @@ export default defineComponent({
       this.validations(changeLog);
 
       axios
-        .post(process.env.API_URL || "", changeLog)
+        .post(`${process.env.API_URL || ""}/change-log/generate-change-log`, changeLog)
         .then((response: any) => {
           this.infoApiChanges = response.data.obj || response.data;
         })
